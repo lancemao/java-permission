@@ -2,13 +2,9 @@
 
 > 基于 Spring boot，Java 版本 >= 11
 
-<br>
-
 ## 引入依赖
 
 目前采用源码方式提供，请拷贝本仓库代码中的 cn.authing.permission 包到工程里面。
-
-<br>
 
 ## 初始化
 
