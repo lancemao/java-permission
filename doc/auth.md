@@ -36,8 +36,6 @@ registration.addUrlPatterns("/*");
 
 配置需要用户信息的端点规则
 
-<br>
-
 ## 获取用户信息
 
 如果凭证非法，过滤器会返回错误，Spring controller 不会被执行。

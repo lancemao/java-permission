@@ -21,8 +21,6 @@ public String yourAPI(HttpServletRequest request, HttpServletResponse response) 
 }
 ```
 
-<br>
-
 ## 判断角色
 
 ```java
@@ -41,8 +39,6 @@ public String yourAPI(HttpServletRequest request, HttpServletResponse response) 
     boolean hasRole = PermissionUtil.hasRole(userInfo, requiredRole);
 }
 ```
-
-<br>
 
 ## 获取用户授权资源
 
@@ -67,8 +63,6 @@ public String yourAPI(HttpServletRequest request, HttpServletResponse response) 
     List<Resource> resources = client.listResources(userInfo);
 }
 ```
-
-<br>
 
 ## 判断是否有某资源访问权限
 

@@ -18,15 +18,11 @@
 Authing.appId = "{authing app id}";
 ```
 
-<br>
-
 ## 开始之前
 
 由于权限控制需要用户信息，所以需要先添加认证相关处理逻辑。详细步骤参考这里：
 
 [凭证校验 & 获取用户信息](doc/auth.md)
-
-<br>
 
 ## 添加权限拦截器
 
@@ -47,23 +43,16 @@ public class PermissionConfig implements WebMvcConfigurer {
 }
 ```
 
-<br>
-
 ## 典型场景
 
 * [通过注解实现 RBAC (Role Based Access Control) 基于角色的权限控制](./doc/rbac.md)
 * [通过注解实现 ABAC (Attribute Based Access Control) 基于属性的权限控制](./doc/abac.md)
 * [手动实现权限控制](./doc/manual.md)
 
-<br>
-
 ## 测试
 
 1. 在 https://developer-beta.authing.cn/ams/auth-tool/index.html 填入自己应用相关信息，点击 Login，拷贝 ID Token
-2. 在 Postman 里面将 ID Token 作为 Authorization Bearer 的值传入
-3. 在访问业务服务时，在 Postman 里面配置 http header，带上 x-authing-app-id 和 x-authing-userpool-id
-
-<br>
+2. 访问业务服务时，在 Postman 里面配置 http header，带上 x-authing-app-id 和 x-authing-userpool-id。同时将步骤一获取的 ID Token 以 Authorization Bearer 的方式传入
 
 ## 私有化部署
 
