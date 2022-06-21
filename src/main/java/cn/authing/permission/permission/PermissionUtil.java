@@ -5,6 +5,7 @@ import cn.authing.permission.core.Role;
 import cn.authing.permission.core.UserInfo;
 import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PermissionUtil {
@@ -47,9 +48,9 @@ public class PermissionUtil {
             action = split[1];
         }
 
-        Resource resource = findResource(resources, res);
-        if (resource != null) {
-            for (String a : resource.getActions()) {
+        List<Resource> resourceFound = findResource(resources, res);
+        for (Resource r : resourceFound) {
+            for (String a : r.getActions()) {
                 String atomicAction = getAction(a);
                 if (StringUtils.hasLength(atomicAction)) {
                     if (atomicAction.equals("*") || atomicAction.equals(action)) {
@@ -61,7 +62,8 @@ public class PermissionUtil {
         return false;
     }
 
-    public static Resource findResource(List<Resource> resources, String res) {
+    public static List<Resource> findResource(List<Resource> resources, String res) {
+        List<Resource> ret = new ArrayList<>();
         for (Resource r : resources) {
             String code = r.getCode();
             if (!StringUtils.hasLength(code)) {
@@ -72,10 +74,10 @@ public class PermissionUtil {
                 continue;
             }
             if (split[0].equals(res)) {
-                return r;
+                ret.add(r);
             }
         }
-        return null;
+        return ret;
     }
 
     public static String getAction(String raw) {

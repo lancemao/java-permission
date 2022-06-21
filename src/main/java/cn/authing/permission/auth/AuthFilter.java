@@ -1,5 +1,6 @@
 package cn.authing.permission.auth;
 
+import cn.authing.permission.core.Authing;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import cn.authing.permission.core.BaseResponse;
@@ -40,7 +41,7 @@ public class AuthFilter implements Filter {
         }
 
         authorization = authorization.replace("Bearer ", "");
-        String url = "https://core.authing.cn/api/v2/users/me";
+        String url = "https://core." + Authing.getHost() + "/api/v2/users/me";
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(url))

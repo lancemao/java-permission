@@ -22,8 +22,8 @@ public class Client {
     private Config config;
 
     public Client() {
-        appId = Authing.appId;
-        appSecret = Authing.appSecret;
+        appId = Authing.getAppId();
+        appSecret = Authing.getAppSecret();
         config = getApplicationConfig(appId);
     }
 
@@ -41,7 +41,7 @@ public class Client {
     public Config getApplicationConfig(String appId) {
         this.appId = appId;
 
-        String url = "https://core." + Authing.host + "/api/v2/applications/" + appId + "/public-config";
+        String url = "https://core." + Authing.getHost() + "/api/v2/applications/" + appId + "/public-config";
         HttpClient client = HttpClient.newHttpClient();
 
         HttpRequest req = HttpRequest.newBuilder()
@@ -62,7 +62,7 @@ public class Client {
         String idToken = userInfo.getToken();
         String userPoolId = config.getUserPoolId();
         String authorization = "Bearer " + idToken;
-        String url = "https://" + config.getIdentifier() + "." + Authing.host + "/api/v2/users/me/roles";
+        String url = "https://" + config.getIdentifier() + "." + Authing.getHost() + "/api/v2/users/me/roles";
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(url))
@@ -98,7 +98,7 @@ public class Client {
         String idToken = userInfo.getToken();
         String userPoolId = config.getUserPoolId();
         String authorization = "Bearer " + idToken;
-        String url = "https://" + config.getIdentifier() + "." + Authing.host + "/api/v2/users/resource/authorized";
+        String url = "https://" + config.getIdentifier() + "." + Authing.getHost() + "/api/v2/users/resource/authorized";
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest req = HttpRequest.newBuilder()
                 .uri(URI.create(url))

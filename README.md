@@ -11,7 +11,7 @@
 在标注了 @SpringBootApplication 的 Application 类里面调用：
 
 ```java
-Authing.appId = "{authing app id}";
+Authing.setAppId("{authing app id}");
 ```
 
 ## 开始之前
@@ -56,5 +56,5 @@ public class PermissionConfig implements WebMvcConfigurer {
 
 ```java
 // mycompany.com is your on premise host
-Authing.host = "mycompany.com";
+Authing.setHost("mycompany.com");
 ```
